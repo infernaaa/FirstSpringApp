@@ -4,31 +4,35 @@ import jakarta.persistence.* ;
 
 @Entity
 @Table(name = "client") // Укажите имя таблицы
+
 public class User {
 
     @Id
-    @Column(name = "idClient")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_client")
+    private Long idClient;
 
     @Column(name = "fio")
     private String fio;
 
-    @Column(name = "B-Day")
+    @Column(name = "b_day")
     private String bDay; // Предпочтительно использовать LocalDate
 
-    @Column(name = "CreditCard")
+    @Column(name = "credit_card")
     private String creditCard;
 
-    @Column(name = "FamilyAccount")
+    @Column(name = "family_account")
     private String familyAccount;
 
+
+
     // Геттеры и сеттеры
-    public Long getId() {
-        return id;
+    public Long getIdClient() {
+        return idClient;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdClient(Long idClient) {
+        this.idClient = idClient;
     }
 
     public String getFio() {
