@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User List</title>
+    <style>
+        table {
+            border-collapse: collapse; /* Объединение границ ячеек */
+            width: 100%; /* Ширина таблицы на 100% */
+        }
+
+        th, td {
+            border: 1px solid #000; /* Черная граница вокруг ячеек */
+            padding: 8px; /* Отступы внутри ячеек */
+            text-align: left; /* Выравнивание текста по левому краю */
+        }
+
+        th {
+            background-color: #f2f2f2; /* Цвет фона заголовков */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Цвет фона для четных строк */
+        }
+    </style>
+</head>
+<body>
+<h1>User List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>FIO</th>
+        <th>Birth Day</th>
+        <th>Credit Card</th>
+        <th>Family Account</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.idClient}"></td>
+        <td th:text="${user.fio}"></td>
+        <td th:text="${user.bDay}"></td>
+        <td th:text="${user.creditCard}"></td>
+        <td th:text="${user.familyAccount}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

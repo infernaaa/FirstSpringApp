@@ -23,6 +23,12 @@
       <artifactId>spring-boot-starter-data-jpa</artifactId>
       <version>3.3.4</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>6.1.13</version>
+    </dependency>
 
     <!-- MySQL Connector -->
     <dependency>
@@ -38,6 +44,11 @@
       <version>3.3.4</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+      <version>3.3.4</version>
+    </dependency>
 
 
     <!-- Spring Boot Starter -->

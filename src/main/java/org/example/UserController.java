@@ -1,23 +1,25 @@
 package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
-@RestController
+@Controller
 public class UserController {
 
-    private final UserService userService;
+    private final UserRepository userRepository; // Должен быть интерфейс, а не сервис
 
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public UserController(UserRepository userRepository) { // Измените здесь
+        this.userRepository = userRepository; // Внедряем UserRepository
     }
 
     @GetMapping("/users")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public String getUsers(Model model) {
+        List<User> users = userRepository.findAll(); // Используйте экземпляр userRepository
+        model.addAttribute("users", users); // Добавляем пользователей в модель
+        return "user_list";
     }
 }
