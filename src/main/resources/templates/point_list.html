@@ -24,24 +24,22 @@
     </style>
 </head>
 <body>
-<h1>User List</h1>
+<h1>Point List</h1>
 <table>
     <thead>
     <tr>
-        <th>ID</th>
-        <th>FIO</th>
-        <th>Birth Day</th>
-        <th>Credit Card</th>
-        <th>Family Account</th>
+        <th>idPoint</th>
+        <th>City</th>
+        <th>Adress</th>
+        <th>NumberOfPhone</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="client : ${clients}">
-        <td th:text="${client.idClient}"></td>
-        <td th:text="${client.fio}"></td>
-        <td th:text="${client.bDay}"></td>
-        <td th:text="${client.creditCard}"></td>
-        <td th:text="${client.familyAccount}"></td>
+    <tr th:each="point : ${points}">
+        <td th:text="${point.idPoint}"></td>
+        <td th:text="${point.City}"></td>
+        <td th:text="${point.Adress}"></td>
+        <td th:text="${point.NumberOfPhone}"></td>
     </tr>
     </tbody>
 </table>

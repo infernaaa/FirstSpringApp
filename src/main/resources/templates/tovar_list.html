@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tovar List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<h1>Tovar List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>IdTovar</th>
+        <th>Cost</th>
+        <th>Mark</th>
+        <th>Model</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tovar : ${tovars}"> <!-- Исправлено на "tovars" -->
+        <td th:text="${tovar.idTovar}"></td>
+        <td th:text="${tovar.cost}"></td>
+        <td th:text="${tovar.mark}"></td>
+        <td th:text="${tovar.model}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
