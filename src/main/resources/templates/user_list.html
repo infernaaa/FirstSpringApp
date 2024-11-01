@@ -4,22 +4,22 @@
     <title>User List</title>
     <style>
         table {
-            border-collapse: collapse; /* Объединение границ ячеек */
-            width: 100%; /* Ширина таблицы на 100% */
+            border-collapse: collapse;
+            width: 100%;
         }
 
         th, td {
-            border: 1px solid #000; /* Черная граница вокруг ячеек */
-            padding: 8px; /* Отступы внутри ячеек */
-            text-align: left; /* Выравнивание текста по левому краю */
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
         }
 
         th {
-            background-color: #f2f2f2; /* Цвет фона заголовков */
+            background-color: #f2f2f2;
         }
 
         tr:nth-child(even) {
-            background-color: #f9f9f9; /* Цвет фона для четных строк */
+            background-color: #f9f9f9;
         }
     </style>
 </head>
@@ -33,6 +33,7 @@
         <th>Birth Day</th>
         <th>Credit Card</th>
         <th>Family Account</th>
+        <th>Actions</th> <!-- Новый столбец для кнопки -->
     </tr>
     </thead>
     <tbody>
@@ -42,8 +43,22 @@
         <td th:text="${client.bDay}"></td>
         <td th:text="${client.creditCard}"></td>
         <td th:text="${client.familyAccount}"></td>
+        <td>
+
+            <a class = "btn" th:href="@{/user/{id}(id=${client.idClient})}">View Details</a>
+            <a class="btn" th:href="@{/user/{id}/edit(id=${client.idClient})}">Edit</a>
+        </td>
+
+
+
+
     </tr>
     </tbody>
 </table>
+<!-- Кнопка для добавления нового пользователя -->
+<div>
+    <a class="btn" th:href="@{/user/addForm}">Add New User</a>
+</div>
+
 </body>
 </html>

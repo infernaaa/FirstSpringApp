@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit User</title>
+</head>
+<body>
+<h1>Edit User</h1>
+<form th:action="@{/user/update}" th:object="${client}" method="post">
+    <input type="hidden" th:field="*{idClient}" />
+
+    <label for="fio">FIO:</label>
+    <input type="text" id="fio" th:field="*{fio}" required><br><br>
+
+    <label for="bDay">Birth Day:</label>
+    <input type="date" id="bDay" th:field="*{bDay}" required><br><br>
+
+    <label for="creditCard">Credit Card:</label>
+    <input type="text" id="creditCard" th:field="*{creditCard}" required><br><br>
+
+    <label for="familyAccount">Family Account:</label>
+    <input type="text" id="familyAccount" th:field="*{familyAccount}" required><br><br>
+
+    <button type="submit">Save Changes</button>
+</form>
+</body>
+</html>
