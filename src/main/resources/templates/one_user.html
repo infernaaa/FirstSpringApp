@@ -21,18 +21,57 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+
+        .btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
 <h1>User Details</h1>
 
-<h1>Total Order Sum: <span th:text="${totalOrderSum}">0</span></h1>
-<h1>Full Name: <span th:text="${client.fio}">Full Name</span></h1>
-<h1>Birthday: <span th:text="${client.bDay}">Birthday</span></h1>
-<h1>Credit Card: <span th:text="${client.creditCard}">Credit Card</span></h1>
-<h1>Family Account: <span th:text="${client.familyAccount}">Family Account</span></h1>
+<h2>Total Order Sum: <span th:text="${totalOrderSum}">0</span></h2>
+<h2>Full Name: <span th:text="${client.fio}">Full Name</span></h2>
+<h2>Birthday: <span th:text="${client.bDay}">Birthday</span></h2>
+<h2>Credit Card: <span th:text="${client.creditCard}">Credit Card</span></h2>
+<h2>Family Account: <span th:text="${client.familyAccount}">Family Account</span></h2>
 
 <a class="btn" th:href="@{/user/{id}/edit(id=${client.idClient})}">Edit</a>
+<form th:action="@{/user/{id}/delete(id=${client.idClient})}" method="post" style="display:inline;">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
 
+<h3>Order History</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Order Date</th>
+        <th>Delivery Date</th>
+        <th>Order Sum</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${clientOrder}">
+        <td th:text="${order[0]}">Order Date</td> <!-- Дата заказа -->
+        <td th:text="${order[1]}">Delivery Date</td> <!-- Дата доставки -->
+        <td th:text="${order[2]}">Order Sum</td> <!-- Сумма заказа -->
+        <td> <a class="btn" th:href="@{/user/{id}/ShowZakazano(id=${client.idClient})}">info</a></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

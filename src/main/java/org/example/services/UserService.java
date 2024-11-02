@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserService implements DataService<Client> {
@@ -27,6 +28,9 @@ public class UserService implements DataService<Client> {
     public Integer calculateTotalPurchases(Long clientId) {
         return UserRepository.calculateTotalPurchasesByClientId(clientId);
     }
+    public List <Object[]> calculateTotalOrdersClient(Long clientId) {
+        return UserRepository.findOrderSumsByClientId(clientId);
+    }
     public Client getClientById(Long clientId) {
         return UserRepository.findById(clientId)
                 .orElseThrow(() -> new RuntimeException("Client not found"));
@@ -37,6 +41,10 @@ public class UserService implements DataService<Client> {
 
     public void updateClient(Client client) {
         UserRepository.save(client);
+    }
+
+    public void deleteClient(Long clientId) {
+        UserRepository.deleteById(clientId);
     }
 
 }
